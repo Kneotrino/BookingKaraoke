@@ -1,0 +1,6 @@
+SELECT boking.*,room.Room_Name as Order_Nama FROM boking INNER JOIN room ON room.Room_Id = boking.boking_room_id
+
+
+set new.boking_Item = new.boking_room_id;
+set new.boking_total = new.boking_jumlah_jam * new.boking_Harga;
+set new.boking_deposit = new.boking_total/2;
