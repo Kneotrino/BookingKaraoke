@@ -64,7 +64,7 @@ function GetPageInfos()
     $result[] = array('caption' => 'Room', 'short_caption' => 'Room', 'filename' => 'room.php', 'name' => 'room', 'group_name' => 'Default', 'add_separator' => false, 'description' => '');
     $result[] = array('caption' => 'User', 'short_caption' => 'User', 'filename' => 'user.php', 'name' => 'user', 'group_name' => 'Default', 'add_separator' => false, 'description' => '');
     $result[] = array('caption' => 'Menu', 'short_caption' => 'Menu', 'filename' => 'menu.php', 'name' => 'menu', 'group_name' => 'Default', 'add_separator' => false, 'description' => '');
-    $result[] = array('caption' => 'Boking', 'short_caption' => 'Boking', 'filename' => 'boking.php', 'name' => 'boking01', 'group_name' => 'Default', 'add_separator' => false, 'description' => '');
+    $result[] = array('caption' => 'Booking ', 'short_caption' => 'Booking', 'filename' => 'Booking .php', 'name' => 'boking01', 'group_name' => 'Default', 'add_separator' => false, 'description' => '');
     return $result;
 }
 

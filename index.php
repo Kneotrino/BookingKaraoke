@@ -15,16 +15,10 @@
   <div id="body">
   <div>
     <h2>Tentang</h2>
-    <p>Looking for more templates? Just browse through all our Free Website Temp
-        lates and find what you’re looking for. But if you don’t find any website template you can use, you can try our Free Web Design service and tell us all about it. Maybe you’re looking for something different, something special. And we love the challenge of doing something different and something special.</p>
+    <p>
+    Happy Puppy adalah Karaoke Keluarga pertama yang didirikan di Indonesia sejak tahun 1992. Semua outlet Happy Puppy didesain dengan konsep terang benderang yang cocok untuk hiburan keluarga. Semua ruangan dilengkapi dengan jendela besar tembus pandang.      
   </div>
-<!--     <th>
-        <form method="GET" action="pencarian.php" >
-          <input type="text" placeholder="Email atau NomorHP" name="Cari" value="" required>
-          <input class="btn danger" type="submit" value="Cari Booking" />
-        </form>
-    </th>  
- -->  <div id="gallery">
+<div id="gallery">
     <h2><a href="gallery.html">Photo Gallery</a></h2>
     <ul>
       <li><a href="gallery.html"><img src="images/girl-smiling.jpg" alt=""></a></li>
@@ -37,8 +31,7 @@
 <div id="footer">
         <?php
             include './footer.php';
-        ?>
-    
+        ?>    
 </div>
 </body>
 </html>

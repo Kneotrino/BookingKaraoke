@@ -42,7 +42,7 @@ $tableCaptions = array('event' => 'Event',
 'room' => 'Room',
 'user' => 'User',
 'menu' => 'Menu',
-'boking01' => 'Boking');
+'boking01' => 'Booking ');
 
 $usersTableInfo = array(
     'TableName' => 'user',
