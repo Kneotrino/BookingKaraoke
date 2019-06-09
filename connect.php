@@ -224,7 +224,7 @@ function DataListPaket(){
 
 function ShowListRoom(){
 		debug_to_console("ShowListMenu","Room Query");
-        $sql = "SELECT Room_Id, Room_Capasitas, Room_Desc, Room_Img, Room_Name, Room_Price, Room_SpecialPrice FROM happy.room";
+        $sql = "SELECT * FROM happy.room";
 		$connMini = 
 			new mysqli(
 				$GLOBALS['servername'],
@@ -241,14 +241,18 @@ function ShowListRoom(){
               $Room_Capasitas = $row["Room_Capasitas"];
               $Room_Price = $row["Room_Price"];
               $Room_SpecialPrice = $row["Room_SpecialPrice"];
+              $Room_Img = $row["Room_Img"];
+              $Room_MBL = $row["Room_Business_Price"];
 
               echo "<div>";
-              echo "<h5>Room</h5>";
+              echo "<h5>ROOM </h5>";
               echo "<h6>$Room_Name</h6>";
-              echo "<a><img src='images/girls-singing3.jpg' alt=''></a>";
+              echo "<a><img src='admin/$Room_Img' alt='' height='300'></a>";
               echo "<p>Kapasitas : $Room_Capasitas Pax";
               echo "<p>$Room_Desc<p>";
-              echo "<span>Harga : Rp. $Room_Price</span> <span>Special : Rp. $Room_SpecialPrice</span>";
+              echo "Harga Normal: Rp. ". number_format($Room_Price)  . "<p>";
+              echo "Harga Special: Rp. ". number_format($Room_SpecialPrice)  . " <p>";
+              echo "Harga MBL: Rp. ". number_format($Room_MBL)  . "";
               echo "</div>";
 
             }
@@ -277,8 +281,8 @@ function ShowListEvent(){
               $Event_Desc   = $row["Event_Desc"];
               echo "<div>";
               echo "<h3>$Event_Name</h3>";
-              echo "<img src='$Event_img' alt=''></a>";
-              echo "<p>$Event_Desc<p>";
+              echo "<a><img src='admin/$Event_img' alt='' height='200' width = '400'></a>";
+              echo "<h5>$Event_Desc</h5>";
               echo "</div>";
             }
         } else {

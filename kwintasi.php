@@ -208,7 +208,7 @@
   </tr>
 </table>
 
-    <!-- <h1 align="center" > Keterangan </h1> -->
+    <h3 align="center" > Silahkan Transfer Deposit ke NO Rekening BCA [014]= 3140835683 A/N Effendi Fernandes </h3>
     <div class="invoice-box">
         <table cellpadding="0" cellspacing="0">
             <tr class="top">

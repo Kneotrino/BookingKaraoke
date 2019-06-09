@@ -20,12 +20,12 @@
     <h2>Photo Gallery</h2>
 <!--     <h4>Aliquam semper felis et nunc egestas placerat. Sed vel erat et orci lacinia dapibus. Nulla cursus nisi vel dolor venenatis aliquam fusce consectetur,</h4>
  -->    <ul>
-      <li><a href="#"><img src="images/girl-sing3.jpg" alt=""></a></li>
-      <li><a href="#"><img src="images/group-singing2.jpg" alt=""></a></li>
-      <li><a href="#"><img src="images/girls-singing2.jpg" alt=""></a></li>
-      <li><a href="#"><img src="images/girl-smiling3.jpg" alt=""></a></li>
-      <li><a href="#"><img src="images/boys-drinking3.jpg" alt=""></a></li>
-      <li><a href="#"><img src="images/asian-girl-singing.jpg" alt=""></a></li>
+      <li><a href="images\INSIDE-3.jpeg"><img src="images\FRONT-1.jpeg" alt="" height="250" width="250"></a></li>
+      <li><a href="images\INSIDE-3.jpeg"><img src="images\INSIDE-1.jpeg" alt="" height="250" width="250"></a></li>
+      <li><a href="images\INSIDE-3.jpeg"><img src="images\INSIDE-2.jpeg" alt="" height="250" width="250"></a></li>
+      <li><a href="images\INSIDE-3.jpeg"><img src="images\INSIDE-3.jpeg" alt="" height="250" width="250"></a></li>
+      <li><a href="images\PEOPLE-1.jpeg"><img src="images\PEOPLE-1.jpeg" alt="" height="250" width="250"></a></li>
+      <li><a href="images\FRONT-1.jpeg"><img src="images\FRONT-1.jpeg" alt="" height="250" width="250"></a></li>
     </ul>
   </div>
 </div>

@@ -24,12 +24,7 @@
     ?>
 
 </div>
-<div id="footer">
-        <?php
-            include './footer.php';
-        ?>
+</div>
 
-</div>
-</div>
 </body>
 </html>

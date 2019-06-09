@@ -401,10 +401,10 @@
             //
             // View column for Room_Img field
             //
-            $column = new TextViewColumn('Room_Img', 'Room_Img', 'Room Img', $this->dataset);
+            $column = new ExternalImageViewColumn('Room_Img', 'Room_Img', 'Room Img', $this->dataset);
             $column->SetOrderable(true);
-            $column->SetMaxLength(75);
-            $column->SetFullTextWindowHandlerName('roomGrid_Room_Img_handler_list');
+            $column->setHeight('200');
+            $column->setWidth('200');
             $column->setMinimalVisibility(ColumnVisibility::PHONE);
             $column->SetDescription('');
             $column->SetFixedWidth(null);
@@ -504,10 +504,10 @@
             //
             // View column for Room_Img field
             //
-            $column = new TextViewColumn('Room_Img', 'Room_Img', 'Room Img', $this->dataset);
+            $column = new ExternalImageViewColumn('Room_Img', 'Room_Img', 'Room Img', $this->dataset);
             $column->SetOrderable(true);
-            $column->SetMaxLength(75);
-            $column->SetFullTextWindowHandlerName('roomGrid_Room_Img_handler_view');
+            $column->setHeight('200');
+            $column->setWidth('200');
             $grid->AddSingleRecordViewColumn($column);
             
             //
@@ -582,8 +582,18 @@
             //
             // Edit column for Room_Img field
             //
-            $editor = new TextAreaEdit('room_img_edit', 50, 8);
-            $editColumn = new CustomEditColumn('Room Img', 'Room_Img', $editor, $this->dataset);
+            $editor = new ImageUploader('room_img_edit');
+            $editor->SetShowImage(true);
+            $editor->setAcceptableFileTypes('image/*');
+            $editColumn = new UploadFileToFolderColumn('Room Img', 'Room_Img', $editor, $this->dataset, false, false, '%Room_Id%', '%random%.%original_file_extension%', $this->OnFileUpload, false);
+            $editColumn->SetReplaceUploadedFileIfExist(true);
+            $editColumn->SetGenerationImageThumbnails(
+                'Room_Img',
+                '',
+                Delegate::CreateFromMethod($this, 'Room_Img_Thumbnail_GenerateFileName_edit'),
+                new ImageFitByHeightResizeFilter(300),
+                false
+            );
             $editColumn->SetAllowSetToNull(true);
             $this->ApplyCommonColumnEditProperties($editColumn);
             $grid->AddEditColumn($editColumn);
@@ -662,8 +672,18 @@
             //
             // Edit column for Room_Img field
             //
-            $editor = new TextAreaEdit('room_img_edit', 50, 8);
-            $editColumn = new CustomEditColumn('Room Img', 'Room_Img', $editor, $this->dataset);
+            $editor = new ImageUploader('room_img_edit');
+            $editor->SetShowImage(true);
+            $editor->setAcceptableFileTypes('image/*');
+            $editColumn = new UploadFileToFolderColumn('Room Img', 'Room_Img', $editor, $this->dataset, false, false, '%Room_Id%', '%random%.%original_file_extension%', $this->OnFileUpload, false);
+            $editColumn->SetReplaceUploadedFileIfExist(true);
+            $editColumn->SetGenerationImageThumbnails(
+                'Room_Img',
+                '',
+                Delegate::CreateFromMethod($this, 'Room_Img_Thumbnail_GenerateFileName_multi_edit'),
+                new ImageFitByHeightResizeFilter(300),
+                false
+            );
             $editColumn->SetAllowSetToNull(true);
             $this->ApplyCommonColumnEditProperties($editColumn);
             $grid->AddMultiEditColumn($editColumn);
@@ -742,8 +762,18 @@
             //
             // Edit column for Room_Img field
             //
-            $editor = new TextAreaEdit('room_img_edit', 50, 8);
-            $editColumn = new CustomEditColumn('Room Img', 'Room_Img', $editor, $this->dataset);
+            $editor = new ImageUploader('room_img_edit');
+            $editor->SetShowImage(true);
+            $editor->setAcceptableFileTypes('image/*');
+            $editColumn = new UploadFileToFolderColumn('Room Img', 'Room_Img', $editor, $this->dataset, false, false, '%Room_Id%', '%random%.%original_file_extension%', $this->OnFileUpload, false);
+            $editColumn->SetReplaceUploadedFileIfExist(true);
+            $editColumn->SetGenerationImageThumbnails(
+                'Room_Img',
+                '',
+                Delegate::CreateFromMethod($this, 'Room_Img_Thumbnail_GenerateFileName_insert'),
+                new ImageFitByHeightResizeFilter(300),
+                false
+            );
             $editColumn->SetAllowSetToNull(true);
             $this->ApplyCommonColumnEditProperties($editColumn);
             $grid->AddInsertColumn($editColumn);
@@ -835,10 +865,10 @@
             //
             // View column for Room_Img field
             //
-            $column = new TextViewColumn('Room_Img', 'Room_Img', 'Room Img', $this->dataset);
+            $column = new ExternalImageViewColumn('Room_Img', 'Room_Img', 'Room Img', $this->dataset);
             $column->SetOrderable(true);
-            $column->SetMaxLength(75);
-            $column->SetFullTextWindowHandlerName('roomGrid_Room_Img_handler_print');
+            $column->setHeight('200');
+            $column->setWidth('200');
             $grid->AddPrintColumn($column);
             
             //
@@ -920,10 +950,10 @@
             //
             // View column for Room_Img field
             //
-            $column = new TextViewColumn('Room_Img', 'Room_Img', 'Room Img', $this->dataset);
+            $column = new ExternalImageViewColumn('Room_Img', 'Room_Img', 'Room Img', $this->dataset);
             $column->SetOrderable(true);
-            $column->SetMaxLength(75);
-            $column->SetFullTextWindowHandlerName('roomGrid_Room_Img_handler_export');
+            $column->setHeight('200');
+            $column->setWidth('200');
             $grid->AddExportColumn($column);
             
             //
@@ -995,10 +1025,10 @@
             //
             // View column for Room_Img field
             //
-            $column = new TextViewColumn('Room_Img', 'Room_Img', 'Room Img', $this->dataset);
+            $column = new ExternalImageViewColumn('Room_Img', 'Room_Img', 'Room Img', $this->dataset);
             $column->SetOrderable(true);
-            $column->SetMaxLength(75);
-            $column->SetFullTextWindowHandlerName('roomGrid_Room_Img_handler_compare');
+            $column->setHeight('200');
+            $column->setWidth('200');
             $grid->AddCompareColumn($column);
             
             //
@@ -1071,6 +1101,23 @@
     		$column->SetVariableContainer($this->GetColumnVariableContainer());
         }
     
+        public function Room_Img_Thumbnail_GenerateFileName_insert(&$filepath, &$handled, $original_file_name, $original_file_extension, $file_size)
+        {
+        $targetFolder = FormatDatasetFieldsTemplate($this->GetDataset(), '');
+        FileUtils::ForceDirectories($targetFolder);
+        
+        $filename = FileUtils::AppendFileExtension(rand(), $original_file_extension);
+        $filepath = Path::Combine($targetFolder, $filename);
+        
+        while (file_exists($filepath))
+        {
+            $filename = FileUtils::AppendFileExtension(rand(), $original_file_extension);
+            $filepath = Path::Combine($targetFolder, $filename);
+        }
+        
+        $handled = true;
+        }
+        
         function GetCustomClientScript()
         {
             return ;
@@ -1082,6 +1129,39 @@
         }
         
         public function GetEnableModalGridInsert() { return true; }
+        public function Room_Img_Thumbnail_GenerateFileName_edit(&$filepath, &$handled, $original_file_name, $original_file_extension, $file_size)
+        {
+        $targetFolder = FormatDatasetFieldsTemplate($this->GetDataset(), '');
+        FileUtils::ForceDirectories($targetFolder);
+        
+        $filename = FileUtils::AppendFileExtension(rand(), $original_file_extension);
+        $filepath = Path::Combine($targetFolder, $filename);
+        
+        while (file_exists($filepath))
+        {
+            $filename = FileUtils::AppendFileExtension(rand(), $original_file_extension);
+            $filepath = Path::Combine($targetFolder, $filename);
+        }
+        
+        $handled = true;
+        }
+        public function Room_Img_Thumbnail_GenerateFileName_multi_edit(&$filepath, &$handled, $original_file_name, $original_file_extension, $file_size)
+        {
+        $targetFolder = FormatDatasetFieldsTemplate($this->GetDataset(), '');
+        FileUtils::ForceDirectories($targetFolder);
+        
+        $filename = FileUtils::AppendFileExtension(rand(), $original_file_extension);
+        $filepath = Path::Combine($targetFolder, $filename);
+        
+        while (file_exists($filepath))
+        {
+            $filename = FileUtils::AppendFileExtension(rand(), $original_file_extension);
+            $filepath = Path::Combine($targetFolder, $filename);
+        }
+        
+        $handled = true;
+        }
+        
         public function GetEnableModalSingleRecordView() { return true; }
         
         public function GetEnableModalGridEdit() { return true; }
@@ -1150,27 +1230,11 @@
             GetApplication()->RegisterHTTPHandler($handler);
             
             //
-            // View column for Room_Img field
-            //
-            $column = new TextViewColumn('Room_Img', 'Room_Img', 'Room Img', $this->dataset);
-            $column->SetOrderable(true);
-            $handler = new ShowTextBlobHandler($this->dataset, $this, 'roomGrid_Room_Img_handler_list', $column);
-            GetApplication()->RegisterHTTPHandler($handler);
-            
-            //
             // View column for Room_Desc field
             //
             $column = new TextViewColumn('Room_Desc', 'Room_Desc', 'Room Desc', $this->dataset);
             $column->SetOrderable(true);
             $handler = new ShowTextBlobHandler($this->dataset, $this, 'roomGrid_Room_Desc_handler_print', $column);
-            GetApplication()->RegisterHTTPHandler($handler);
-            
-            //
-            // View column for Room_Img field
-            //
-            $column = new TextViewColumn('Room_Img', 'Room_Img', 'Room Img', $this->dataset);
-            $column->SetOrderable(true);
-            $handler = new ShowTextBlobHandler($this->dataset, $this, 'roomGrid_Room_Img_handler_print', $column);
             GetApplication()->RegisterHTTPHandler($handler);
             
             //
@@ -1182,27 +1246,11 @@
             GetApplication()->RegisterHTTPHandler($handler);
             
             //
-            // View column for Room_Img field
-            //
-            $column = new TextViewColumn('Room_Img', 'Room_Img', 'Room Img', $this->dataset);
-            $column->SetOrderable(true);
-            $handler = new ShowTextBlobHandler($this->dataset, $this, 'roomGrid_Room_Img_handler_compare', $column);
-            GetApplication()->RegisterHTTPHandler($handler);
-            
-            //
             // View column for Room_Desc field
             //
             $column = new TextViewColumn('Room_Desc', 'Room_Desc', 'Room Desc', $this->dataset);
             $column->SetOrderable(true);
             $handler = new ShowTextBlobHandler($this->dataset, $this, 'roomGrid_Room_Desc_handler_view', $column);
-            GetApplication()->RegisterHTTPHandler($handler);
-            
-            //
-            // View column for Room_Img field
-            //
-            $column = new TextViewColumn('Room_Img', 'Room_Img', 'Room Img', $this->dataset);
-            $column->SetOrderable(true);
-            $handler = new ShowTextBlobHandler($this->dataset, $this, 'roomGrid_Room_Img_handler_view', $column);
             GetApplication()->RegisterHTTPHandler($handler);
         }
        
